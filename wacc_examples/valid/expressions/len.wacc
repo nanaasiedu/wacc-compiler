@@ -1,0 +1,6 @@
+
+
+begin
+  int[] a = [1,2,3];
+  char c = chr a[2]
+end

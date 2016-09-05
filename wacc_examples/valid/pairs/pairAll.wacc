@@ -1,0 +1,13 @@
+
+
+begin
+  pair(int,int) p1 = newpair(123,54);
+  int x = 33;
+  pair(int,int) p2 = newpair(x,54);
+  int[] a = [1,2,3,4];
+  pair(int,int) p3 = newpair(a[2],x);
+  pair(int,pair) p4 = newpair(0,null);
+  pair(int,int) p5 = newpair(0,2*x);
+  pair(int,pair) p6 = newpair(34234,p4)
+
+end

@@ -1,0 +1,29 @@
+# Expected: 3
+
+begin
+  class Person open
+    string name, int age
+
+    bool birthdayMsg() is
+      print "HAPPY BIRTHDAY ";
+      return true
+    end
+
+    int shout() is
+      print "ROAR";
+      return 0
+    end
+
+    int scream() is
+      print "AHHHHH";
+      return 1
+    end
+
+    char hit() is
+      print "HIYAAA";
+      return 'a'
+    end
+  close
+
+  skip
+end

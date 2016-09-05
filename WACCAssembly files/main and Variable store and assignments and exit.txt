@@ -1,0 +1,39 @@
+Main ---
+
+.text
+
+.global main
+main:
+  push {lr} // save prev call addr
+  ldr r0, =0 // store 0 in main return value
+  pop {pc}   // set next instr to caller addr
+  .ltorg
+
+---
+
+Variables storing ---
+
+msg_0:
+  .word 6
+  .ascii "Nanani"
+
+sub sp, sp, #n // sp -= n where n = total num of bytes of all variables used in scope
+str =5, [sp, #(m-4)] // int x = 5 / m = n - 4(int)
+strb #1, [sp, #(m-1)] // bool b = true / m = m - 1(bool)
+strb 'n', [sp, #(m-1)]// char c = 'n' / m = m - 1(char)
+str =msg_0, [sp, #(m-4)]// string s = "Nanani"/ m = m - 4(addr)
+add sp, sp, #n // clears variable space
+
+---
+
+Assignment -----
+
+str =5, [sp, #offset]  // x (int) = 5
+str =msg_1, [sp, #offset] // s (string) = "hello world"
+
+---
+
+Exit ---
+ldr r0, =2
+BL exit
+---

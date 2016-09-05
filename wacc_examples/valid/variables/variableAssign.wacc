@@ -1,0 +1,44 @@
+
+
+
+begin
+
+int id(int x) is
+  return 1
+end
+
+ int aa = 10;
+ int bb = 120;
+ int cc = 123243;
+ int[] iarray2 = [aa,bb,cc];
+
+
+
+ pair(int,int) p = newpair(2,10);
+ int[] iarray = [1,2,3,4];
+ int i1 = iarray[2];
+ int i2 = call id(i1);
+ int i3 = fst p;
+
+ char[] carray = ['H','e','l','l','o'];
+ char c1 = 'K';
+ char c2 = 'F';
+ c2 = c1;
+ c1 = carray[2];
+
+
+ bool b1 = true;
+ bool b2 = b1;
+ bool[] barray = [true,false,true,false];
+ b1 = barray[2];
+ b2 = b1;
+
+ string s1 = "Hello";
+ string s2 = "World";
+ string[] sarray = ["Don\'t","Forget","Who","I","Am"];
+ s1 = s2;
+ s2 = sarray[2];
+
+
+ i3 = snd p
+end

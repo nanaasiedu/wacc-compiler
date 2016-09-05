@@ -1,0 +1,9 @@
+# PARSE/SEMAN/PASS
+
+begin
+  class Person open
+    string name, int age
+  close
+
+  skip
+end

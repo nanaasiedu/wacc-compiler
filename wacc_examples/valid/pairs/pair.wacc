@@ -1,0 +1,6 @@
+
+begin
+ pair(int,int) p1 = newpair(500,100);
+ pair(int,int) p2 = newpair(200,500);
+ p1 = p2
+end

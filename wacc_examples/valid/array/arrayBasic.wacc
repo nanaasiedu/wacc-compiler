@@ -1,0 +1,15 @@
+# basic array declaration and assignment
+
+# Output:
+# #empty#
+
+# Program:
+
+begin
+#  int[] a = [0,124,23940,342];
+  #int b = a[a[0]];
+  pair(int,int) p = newpair(320,320);
+  int c = fst p
+
+
+end

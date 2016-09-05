@@ -1,0 +1,34 @@
+# PARSE FAIL
+
+begin
+  class A open
+    int a
+  close
+
+  class B open
+    bool b
+  close
+
+  class C open
+    char c
+  close
+
+  class D open
+    string d
+  close
+
+  int inc(int x) is
+    return x + 1
+  end
+
+  char getChar() is
+    char c = ' ';
+    read c;
+    return c
+  end
+
+  A a = new A(2);
+  B b = new B(true);
+  C c = new C('c');
+  D d = new D("Hello")
+end

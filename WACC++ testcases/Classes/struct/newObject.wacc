@@ -1,0 +1,9 @@
+# Expected:
+
+begin
+  class Person open
+    string name, int age, bool epic
+  close
+
+  Person p = new Person("Nana",19,true)
+end

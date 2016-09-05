@@ -1,0 +1,25 @@
+# Expected:
+# 68++ = 69
+# 69-- twice = 67
+
+begin
+  int increment(int x) is
+    x++;
+    return x
+  end
+
+  int decrement(int x) is
+    x--;
+    return x
+  end
+
+  int x = call increment(68);
+  print "68++ = ";
+  println x;
+
+  x = call decrement(x);
+  x = call decrement(x);
+  print "69-- twice = ";
+  println x
+
+end

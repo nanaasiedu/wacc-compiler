@@ -1,0 +1,31 @@
+scope ---
+#bool b = true; int x = 2;
+#begin
+#  string s = "nanani"; bool b = false
+#  b = true; x = 420
+#end
+
+11		SUB sp, sp, #5
+
+12		MOV r0, #1
+13		STRB r0, [sp, #4]
+14		LDR r0, =2
+15		STR r0, [sp]
+
+16		SUB sp, sp, #5 // creates space for variables in new scope
+
+17		LDR r0, =msg_0 // treat new variables the same way as global scope
+18		STR r0, [sp, #1]
+19		MOV r0, #0
+20		STRB r0, [sp]
+
+21		MOV r0, #1
+22		STRB r0, [sp]  // storing inner most scope identical to global scope
+23		LDR r0, =420
+24		STR r0, [sp, #5] // offset = scope offset + total var space for all inner scopes
+
+21		ADD sp, sp, #5 // delete inner scope
+
+22		ADD sp, sp, #5 // delete outer scope
+
+---

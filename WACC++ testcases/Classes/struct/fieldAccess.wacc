@@ -1,0 +1,16 @@
+# Expected:
+
+begin
+  class Animal open
+    int numberOfLegs,
+    bool isFast
+  close
+
+  Animal cheetah = new Animal(4, true);
+  bool b = cheetah.isFast;
+  int n = cheetah.numberOfLegs;
+
+  print "value of b = "; println b;
+  print "value of n = "; println n
+
+end

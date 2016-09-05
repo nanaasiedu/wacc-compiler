@@ -1,0 +1,15 @@
+# Expected: 3
+
+begin
+  class Person open
+    string name, int age
+
+    bool birthdayMsg() is
+      print "HAPPY BIRTHDAY ";
+      return true
+    end
+  close
+
+  Person p = new Person("Nana",19);
+  call p.birthdayMsg()
+end

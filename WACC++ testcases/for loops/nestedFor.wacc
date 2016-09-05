@@ -1,0 +1,12 @@
+# Expected: // 8x8 grid of O
+
+begin
+  int start = 1; int finish = 8;
+
+  for start < finish; start++  do
+    for int j = 0; j < start; j++ do
+      print "O"
+    done
+
+  done
+end

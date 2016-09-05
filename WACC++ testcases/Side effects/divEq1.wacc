@@ -1,0 +1,7 @@
+# Expected: 3
+
+begin
+  int number = 27;
+  number /= 9;
+  print number
+end

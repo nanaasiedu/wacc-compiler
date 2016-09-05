@@ -1,0 +1,7 @@
+# Expected: 25
+
+begin
+  int number = 5;
+  number**;
+  print number
+end

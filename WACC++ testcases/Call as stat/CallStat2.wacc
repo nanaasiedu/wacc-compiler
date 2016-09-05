@@ -1,0 +1,20 @@
+# PASS
+
+begin
+  int printX(pair(int,int) coordinate) is
+    int x = fst coordinate;
+    print "x = "; println x;
+    return x
+  end
+
+  int printY(pair(int,int) coordinate) is
+  int y = snd coordinate;
+    print "y = "; println y;
+    return y
+  end
+
+  pair(int, int) c = newpair(5,10);
+  println "Coordinate values: ";
+  int x = call printX(c);
+  call printY(c) # call as stat
+end

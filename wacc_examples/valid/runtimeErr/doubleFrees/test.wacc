@@ -1,0 +1,4 @@
+begin
+	pair(int, int) p = null ;
+	snd p = 1
+end

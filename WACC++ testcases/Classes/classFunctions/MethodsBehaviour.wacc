@@ -1,0 +1,22 @@
+# Expected: 250
+
+begin
+
+  class Animal open
+    string name,
+    string colour,
+    int age
+
+    int calculateAge() is
+      return 20 + 30
+    end
+
+
+  close
+
+  Animal nana = new Animal("Nana",10);
+  nana.age = 100;
+  int x = call nana.calculateAge();
+  println x
+
+end

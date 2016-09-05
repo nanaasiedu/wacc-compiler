@@ -1,0 +1,26 @@
+# Expected: 250
+
+begin
+
+  class CodeGen open
+    string instrs,
+    bool  inFunc
+
+    bool printAssem(string i) is
+      println i;
+      return true
+    end
+
+    int addSquare(int x, int y) is
+      x**; y**;
+      return x + y
+    end
+
+  close
+
+  CodeGen cg = new CodeGen("MOV r4, #15", true);
+  bool success = call cg.printAssem("LDR r4, [sp]");
+  int x = call cg.addSquare(3,4);
+  println x
+
+end

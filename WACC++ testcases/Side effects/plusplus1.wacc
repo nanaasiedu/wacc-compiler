@@ -1,0 +1,7 @@
+# Expected: 10
+
+begin
+  int number = 9;
+  number++;
+  print number
+end

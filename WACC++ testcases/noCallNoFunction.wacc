@@ -1,0 +1,19 @@
+# PASS
+
+begin
+  int printX(pair(int,int) coordinate) is
+    int x = fst coordinate;
+    print "x = "; println x;
+    return x
+  end
+
+  string pass(bool isPass) is
+    if isPass then
+      print "Test passed"
+    else skip
+    fi;
+    return "Hello"
+  end
+
+  string x = call pass(true) 
+end

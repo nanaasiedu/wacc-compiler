@@ -1,0 +1,7 @@
+# Expected: 5
+
+begin
+  int number = 6;
+  number--;
+  print number
+end

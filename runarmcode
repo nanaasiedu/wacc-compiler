@@ -1,0 +1,23 @@
+#!/bin/sh
+if [ -z $1 ]; then
+  echo needs one argument
+  exit 1
+fi
+
+make
+echo ===compiling===
+./compile $1
+if [ $? -ne 0 ]; then
+  echo !!!compilation failed!!!
+  exit 1
+fi
+echo ===linking===
+arm-linux-gnueabi-gcc -o armexe -mcpu=arm1176jzf-s -mtune=arm1176jzf-s ARMCode.s
+if [ $? -ne 0 ]; then
+  echo !!!linking failed!!!
+  exit 1
+fi
+echo ===executing===
+qemu-arm -L /usr/arm-linux-gnueabi/ armexe 2>/tmp/wacc.err 1>/tmp/wacc.out
+
+echo exit code: $?

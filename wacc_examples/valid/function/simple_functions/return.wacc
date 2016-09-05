@@ -1,0 +1,12 @@
+
+
+begin
+
+  int id(int x) is
+    return x
+  end
+
+  int a = 10;
+  a = call id(a)
+
+end

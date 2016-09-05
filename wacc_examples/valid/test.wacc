@@ -1,0 +1,3 @@
+begin
+ bool[] bs = [true, true, true]
+end

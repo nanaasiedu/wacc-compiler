@@ -1,0 +1,17 @@
+# basic array declaration and assignment
+
+# Output:
+# 3
+# 3
+
+# Program:
+
+begin
+  bool[] a = [true,false];
+  int i = 32;
+  char c = 'a';
+  bool b = false;
+  string s = "Hello"
+end
+
+

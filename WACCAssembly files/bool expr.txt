@@ -1,0 +1,67 @@
+bin non bool op ---
+22		LDR r0, [sp, #offset] // r0 = first expr x
+23		PUSH {r0}             // save x
+24		LDR r0, [sp, #(offset + bytes(x))] // r0 = y
+25		MOV r1, r0 // r1 = y
+26		POP {r0}   // r0 = x
+27		CMP r0, r1 // check x - y
+
+# x == y
+28		MOVEQ r0, #1 // r0 = true if x == y
+29		MOVNE r0, #0 // r0 = false if x /= y
+
+# x > y
+16		MOVGT r0, #1
+17		MOVLE r0, #0
+
+# x >= y
+16		MOVGE r0, #1
+17		MOVLT r0, #0
+
+# x < y
+16		MOVLT r0, #1
+17		MOVGE r0, #0
+
+# x <= y
+16		MOVLE r0, #1
+17		MOVGT r0, #0
+
+# x != y
+25		MOVNE r0, #1
+26		MOVEQ r0, #0
+
+---
+
+bool bin ---
+# x && y
+LDRSB r0, [sp, #offset] // r0 = x
+11		CMP r0, #0        // check x - 0
+12		BEQ L0            // if x == 0 then r0 = false
+13		LDRSB r0, [sp, #offset] // else r0 = y
+14	L0:
+
+# x || y
+LDRSB r0, [sp, #offset] // r0 = x
+17		CMP r0, #1        // check x - 1
+18		BEQ L1            // if x == 1 then r0 = true
+19		LDRSB r0, [sp, #offset] // else r0 = y
+20	L1:
+
+---
+
+bool un ---
+
+# !x
+LDRSB r0, [sp, #offset] // r0 = x
+11		EOR r0, r0, #1    // r0 = !x
+
+---
+
+bool liter ---
+
+# true
+MOV r0, #1
+# false
+MOV r0, #0
+
+---

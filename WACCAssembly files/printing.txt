@@ -1,0 +1,134 @@
+Print formats ---
+.data
+
+msg_1:
+  .word 3
+  .ascii "%d\0"
+
+msg_2:
+  .word 5
+  .ascii "true\0"
+
+msg_3:
+  .word 6
+  .ascii "false\0"
+
+msg_4:
+  .word 5
+  .ascii "%.*s\0"
+
+msg_5:
+  .word 1
+  .ascii	"\0"
+
+msg_6:
+	.word 3
+	.ascii	"%p\0"
+...
+---
+
+Print variables ---
+
+ldr r0, [sp, #offset] // r0 (arg) = int value
+BL p_print_int
+
+ldrsb r0, [sp, #offset] // r0 (arg) = bool value
+BL p_print_bool
+
+ldrsb r0, [sp, #offset] // r0 (arg) = char value
+BL putchar
+
+ldr r0, [sp, #offset] // r0 (arg) = string value
+BL p_print_string
+BL p_print_ln // ADD IF PRINTLN NOT PRINT
+
+---
+
+Print Literals ---
+
+23    LDR r4, =msg_0
+24		MOV r0, r4
+25		BL p_print_string
+
+26		LDR r4, =2
+27		MOV r0, r4
+28		BL p_print_int
+
+29		MOV r4, #'c'
+30		MOV r0, r4
+31		BL putchar
+
+32		MOV r4, #1
+33		MOV r0, r4
+34		BL p_print_bool
+
+---
+
+Print functions ---
+
+43	p_print_int:
+44		PUSH {lr}
+
+45		MOV r1, r0
+46		LDR r0, =msg_1
+47		ADD r0, r0, #4
+48		BL printf
+
+49		MOV r0, #0
+50		BL fflush
+
+51		POP {pc}
+###################
+52	p_print_bool:
+53		PUSH {lr}
+54		CMP r0, #0
+
+55		LDRNE r0, =msg_2
+56		LDREQ r0, =msg_3
+57		ADD r0, r0, #4
+58		BL printf
+
+59		MOV r0, #0
+60		BL fflush
+
+61		POP {pc}
+#######################
+62	p_print_string:
+63		PUSH {lr}
+
+64		LDR r1, [r0]
+65		ADD r2, r0, #4
+66		LDR r0, =msg_4
+67		ADD r0, r0, #4
+68		BL printf
+
+69		MOV r0, #0
+70		BL fflush
+
+71		POP {pc}
+#######################
+59	p_print_ln:
+60		PUSH {lr}
+
+61		LDR r0, =msg_2
+62		ADD r0, r0, #4
+63		BL puts
+
+64		MOV r0, #0
+65		BL fflush
+
+66		POP {pc}
+#########################
+37	p_print_reference:
+38		PUSH {lr}
+
+39		MOV r1, r0
+40		LDR r0, =msg_0
+41		ADD r0, r0, #4
+42		BL printf
+
+43		MOV r0, #0
+44		BL fflush
+
+45		POP {pc}
+---

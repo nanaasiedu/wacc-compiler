@@ -1,0 +1,27 @@
+Reading---
+msg_1:
+  .word 3
+  .ascii "%d\0"
+
+msg_2:
+  .word 4
+  .ascii "%c\0"
+...
+
+add r0, sp, #offset // store location of read variable in parameter
+BL p_read_int       // call read func depending on type
+
+add r0, sp, #offset // store location of read variable in parameter
+BL p_read_char       // call read func depending on type
+...
+
+p_read_int/ p_read_char:
+  push {lr}
+
+  mov r1, r0 // r1 (argument) = int addr (parameter)
+  ldr r0, =msg_1/=msg_2 // r0 (argument) = "%d\0" r "%c\0"
+  add r0, r0, #4 // ??? Maybe to remove '%' or '\0'
+  BL scanf
+
+  pop {pc}
+---

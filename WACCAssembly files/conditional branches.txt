@@ -1,0 +1,30 @@
+if ---
+
+** eval bool expr into r0 **
+13		CMP r0, #0 // check bool
+14		BEQ L0     // if bool is false branch to L0
+
+15		LDR r0, =10 // if stat
+16		BL exit
+17		B L1
+
+18	L0:
+19		LDR r0, =20 // else stat
+20		BL exit
+
+21	L1:
+
+---
+
+while --
+
+17		B L1
+18	L0:
+19		... //statements
+
+23	L1:
+24		** eval bool expr into r0 **
+25		CMP r0, #1 // check bool
+26		BEQ L0     // if bool is true loop
+
+---

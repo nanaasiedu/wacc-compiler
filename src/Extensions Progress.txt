@@ -1,0 +1,79 @@
+SIDE CONDITIONS: COMPLETE/TESTED -----------------------------------------------
+-    += -= /= *= %= -- ++
+
+NO CALL NO FUNCTION DEF: COMPLETE ----------------------------------------------
+
+FOR LOOP: COMPLETE -------------------------------------------------------------
+
+ALLOW FUNCTION CALLS OUTSIDE OF ASSIGNMENT: HENRYK -----------------------------
+
+CLASSES: (Frontend done) NOT COMPLETE - FRONTEND AND NANA/AYMAN/HENRYK
+- visitDeclare   - DONE/UNTESTED
+- visitNewObject - DONE/UNTESTED
+- visitField     - DONE/UNTESTED
+- THIS .         - not done
+- Assign to field - DONE/UNTESTED
+- visitMethod     - DONE/UNTESTED (codegen.go still needs to be updated)
+- visitCall      - DONE --------------------------------------------------------
+- printing classes/ free classes - DONE/UNTESTED
+
+----
+BNF UPDATE
+COMPLETE
+<side effect> ::= | <expr> '+=' <expr>
+                  | <expr> '-=' <expr>
+                  | <expr> '/=' <expr>
+                  | <expr> '*=' <expr>
+                  | <expr> '%=' <expr>
+                  | <expr> '++'
+                  | <expr> '--'
+                  | <expr> '**'
+
+have functions hold a ref to an optional class ident for this '.' <ident> case HENRYK/OLI
+
+COMPLETE (APART FROM IMPLEMENTED FINCTIONS FOR AST NODES)
+<stat> := ... | 'for' <expr> 'from' <expr> 'to' <expr> 'do' <stat> 'done' OLI       THIS IS DEPRECATED
+              | 'for' <declare> SEMICOLON <expr> SEMICOLON <assign> 'do' <stat> 'done'           THIS IS NEW
+              | 'for' <expr> SEMICOLON <assign> 'do' <stat> 'done'                               THIS IS NEW
+              | 'call' <ident> '(' <arg-list>? ')' HENRYK
+              | 'call' <ident>'.'<ident> '(' <arg-list>? ')' HENRYK
+
+// for <ident>'.'<ident> : check if the fist <ident> has a type class and that the class uses the function named in the second <ident>
+NOT COMPLETE
+<type> ::= ... | <class-ident> HENRYK
+// To use the class ident type, the class must be previously defined
+
+COMPLETE
+<program> ::= 'begin' <class>* <func>* <stat> 'end' HENRYK
+// Only one class per program is allowed
+
+COMPLETE
+<class-ident> := ('A'-'Z')('_'|'a'-'z'|'A'-'Z'|'0'-'9')* HENRYK
+// class identifiers are not allowed to clash with any variable/function/variable/type names or keywords
+
+COMPLETE (APART FROM IMPLEMENTED FUNCTIONS FOR AST NODES)
+<assign-rhs> := ... | 'new' <class-ident>'('<arg-list>?')'
+                    | 'call' <ident>'.'<ident> '(' <arg-list>? ')'
+
+// The correct number of arguments must be present for the instantiation of the object
+
+<assign-lhs> := ... | <ident>'.'<ident>
+                    | 'this''.'<ident>
+
+<expr> := ... | <ident>'.'<ident>
+              | 'this''.'<ident>
+
+COMPLETE
+<field> := <param>
+
+COMPLETE
+<field-list> := <field>(',' <field>)*
+
+COMPLETE
+<class> := 'class' <class-ident> 'open' <field-list>* <func>* 'close'
+
+
+<expr> := NEW IDENTIFIER OPENROUND ParamList CLOSEROUND
+
+// cannot create array of objects
+// Add instance function

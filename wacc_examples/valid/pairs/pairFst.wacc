@@ -1,0 +1,6 @@
+
+
+begin
+  pair(int, int) a = newpair(10, 200);
+  int x = fst a
+end

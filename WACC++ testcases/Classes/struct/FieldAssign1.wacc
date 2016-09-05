@@ -1,0 +1,15 @@
+# Expected:
+
+begin
+  class Player open
+    string name,
+    int level,
+    int hp,
+    int attack
+  close
+
+  Player hero = new Player("Luke", 1, 10, 15);
+  hero.name = "Kylo Ren";
+  hero.attack = 200
+
+end

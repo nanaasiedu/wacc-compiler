@@ -1,0 +1,21 @@
+# Expected: 3
+
+begin
+  class Person open
+    string name, int age
+
+    bool printName() is
+      print this.name;
+      return true
+    end
+
+    bool printAge() is
+      print this.age;
+      return true
+    end
+  close
+
+  Person p = new Person("Sanic",15);
+  call p.printName();
+  call p.printAge()
+end

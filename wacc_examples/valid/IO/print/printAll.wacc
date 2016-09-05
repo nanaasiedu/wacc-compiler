@@ -1,0 +1,41 @@
+#Test all print cases
+
+begin
+
+  int id(int x) is
+    return x
+  end
+
+  int i = 10;
+  int[] iarray = [1,2,3,4];
+
+  print 1;
+  print i;
+  print iarray[1];
+
+  char c = 's';
+  char[] carray = ['1','2','3','4'];
+
+  print 'D';
+  print c;
+  print carray[1];
+
+  bool b = true;
+  bool[] barray = [true,false,true,true];
+
+  print true;
+  print b;
+  print barray[2];
+
+  string s = "String";
+  string[] sarray = ["Hello","World"];
+
+  print "TOXic";
+  print s;
+  print null;
+  print sarray[2];
+  print len barray;
+  print (2)
+
+
+end
